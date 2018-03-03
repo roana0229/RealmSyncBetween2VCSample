@@ -14,6 +14,13 @@
 		FB49AB7B204A73CF00A5BA72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB49AB79204A73CF00A5BA72 /* LaunchScreen.storyboard */; };
 		FB49AB86204A73CF00A5BA72 /* RealmSyncBetween2VCSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49AB85204A73CF00A5BA72 /* RealmSyncBetween2VCSampleTests.swift */; };
 		FB49AB91204A73CF00A5BA72 /* RealmSyncBetween2VCSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49AB90204A73CF00A5BA72 /* RealmSyncBetween2VCSampleUITests.swift */; };
+		FB9E7C23204A933500655CE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9E7C20204A933500655CE3 /* Realm.framework */; };
+		FB9E7C24204A933500655CE3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9E7C21204A933500655CE3 /* RealmSwift.framework */; };
+		FB9E7C25204A933500655CE3 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9E7C22204A933500655CE3 /* RxRealm.framework */; };
+		FB9E7C27204A9C0C00655CE3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E7C26204A9C0C00655CE3 /* DetailViewController.swift */; };
+		FB9E7C2A204B01F400655CE3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9E7C28204B01F400655CE3 /* RxSwift.framework */; };
+		FB9E7C2B204B01F400655CE3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9E7C29204B01F400655CE3 /* RxCocoa.framework */; };
+		FB9E7C2D204B049000655CE3 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9E7C2C204B049000655CE3 /* ItemEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		FB49AB8C204A73CF00A5BA72 /* RealmSyncBetween2VCSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmSyncBetween2VCSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB49AB90204A73CF00A5BA72 /* RealmSyncBetween2VCSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSyncBetween2VCSampleUITests.swift; sourceTree = "<group>"; };
 		FB49AB92204A73CF00A5BA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9E7C20204A933500655CE3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		FB9E7C21204A933500655CE3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		FB9E7C22204A933500655CE3 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
+		FB9E7C26204A9C0C00655CE3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB9E7C28204B01F400655CE3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		FB9E7C29204B01F400655CE3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		FB9E7C2C204B049000655CE3 /* ItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9E7C2A204B01F400655CE3 /* RxSwift.framework in Frameworks */,
+				FB9E7C2B204B01F400655CE3 /* RxCocoa.framework in Frameworks */,
+				FB9E7C23204A933500655CE3 /* Realm.framework in Frameworks */,
+				FB9E7C24204A933500655CE3 /* RealmSwift.framework in Frameworks */,
+				FB9E7C25204A933500655CE3 /* RxRealm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +100,7 @@
 				FB49AB84204A73CF00A5BA72 /* RealmSyncBetween2VCSampleTests */,
 				FB49AB8F204A73CF00A5BA72 /* RealmSyncBetween2VCSampleUITests */,
 				FB49AB6E204A73CF00A5BA72 /* Products */,
+				FB9E7C1F204A933500655CE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +119,12 @@
 			children = (
 				FB49AB70204A73CF00A5BA72 /* AppDelegate.swift */,
 				FB49AB72204A73CF00A5BA72 /* ViewController.swift */,
+				FB9E7C26204A9C0C00655CE3 /* DetailViewController.swift */,
 				FB49AB74204A73CF00A5BA72 /* Main.storyboard */,
 				FB49AB77204A73CF00A5BA72 /* Assets.xcassets */,
 				FB49AB79204A73CF00A5BA72 /* LaunchScreen.storyboard */,
 				FB49AB7C204A73CF00A5BA72 /* Info.plist */,
+				FB9E7C2C204B049000655CE3 /* ItemEntity.swift */,
 			);
 			path = RealmSyncBetween2VCSample;
 			sourceTree = "<group>";
@@ -125,6 +147,18 @@
 			path = RealmSyncBetween2VCSampleUITests;
 			sourceTree = "<group>";
 		};
+		FB9E7C1F204A933500655CE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB9E7C29204B01F400655CE3 /* RxCocoa.framework */,
+				FB9E7C28204B01F400655CE3 /* RxSwift.framework */,
+				FB9E7C20204A933500655CE3 /* Realm.framework */,
+				FB9E7C21204A933500655CE3 /* RealmSwift.framework */,
+				FB9E7C22204A933500655CE3 /* RxRealm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +169,7 @@
 				FB49AB69204A73CF00A5BA72 /* Sources */,
 				FB49AB6A204A73CF00A5BA72 /* Frameworks */,
 				FB49AB6B204A73CF00A5BA72 /* Resources */,
+				FB49AB9E204A7A8000A5BA72 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -254,11 +289,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FB49AB9E204A7A8000A5BA72 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRealm.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB49AB69204A73CF00A5BA72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9E7C2D204B049000655CE3 /* ItemEntity.swift in Sources */,
+				FB9E7C27204A9C0C00655CE3 /* DetailViewController.swift in Sources */,
 				FB49AB73204A73CF00A5BA72 /* ViewController.swift in Sources */,
 				FB49AB71204A73CF00A5BA72 /* AppDelegate.swift in Sources */,
 			);
@@ -428,6 +492,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U237WXEW5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmSyncBetween2VCSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.roana0229.app.RealmSyncBetween2VCSample;
@@ -443,6 +511,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U237WXEW5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmSyncBetween2VCSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.roana0229.app.RealmSyncBetween2VCSample;
