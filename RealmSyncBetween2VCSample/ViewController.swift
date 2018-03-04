@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
+    deinit {
+        print("deinit: \(String(describing: self))")
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -24,10 +24,14 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        idLabel.text = "\(viewModel.item.name) \(viewModel.item.gender)\n\(viewModel.item.birthday)"
+        idLabel.text = viewModel.item.profile
         starButton.isSelected = viewModel.item.isStar
         starButton.setTitleColor(UIColor.gray, for: .normal)
         starButton.setTitleColor(UIColor.orange, for: .selected)
+    }
+
+    deinit {
+        print("deinit: \(String(describing: self))")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,16 +60,12 @@ private class ViewModel {
 
     fileprivate struct PresentationModel {
         let id: Int
-        let name: String
-        let gender: String
-        let birthday: String
+        let profile: String
         let isStar: Bool
 
-        init(id: Int, name: String, gender: String, birthday: String, isStar: Bool) {
+        init(id: Int, profile: String, isStar: Bool) {
             self.id = id
-            self.name = name
-            self.gender = gender
-            self.birthday = birthday
+            self.profile = profile
             self.isStar = isStar
         }
     }
@@ -81,11 +81,11 @@ private class ViewModel {
         self.itemId = itemId
 
         let entity = try! Realm().objects(ItemEntity.self).filter { $0.id == itemId }.first!
-        self.item = PresentationModel(id: entity.id,
-                                       name: entity.lastName + " " + entity.firstName,
-                                       gender: entity.gender == "Male" ? "男性" : "女性",
-                                       birthday: entity.birthday.replacingOccurrences(of: "/", with: "-"),
-                                       isStar: entity.isStar)
+        let name = entity.lastName + " " + entity.firstName
+        let gender = entity.gender == "Male" ? "男性" : "女性"
+        let birthdayComponents = entity.birthday.components(separatedBy: "/")
+        let birthday = "\(birthdayComponents[0])年\(birthdayComponents[1])月\(birthdayComponents[2])日"
+        self.item = PresentationModel(id: entity.id, profile: "\(name)\n\(gender)\n\(birthday)", isStar: entity.isStar)
     }
 
     fileprivate func onClickBack() {
