@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
@@ -67,22 +68,13 @@ private class ViewModel {
 
     private weak var viewController: UIViewController!
 
-    // TODO: DBからレコードを取得
-    fileprivate let items = [
-        ItemEntity(id: 1, lastName: "キド", firstName: "ブンペイ", gender: "Male", birthday: "1991/09/29"),
-        ItemEntity(id: 2, lastName: "イシオカ", firstName: "カエデ", gender: "Female", birthday: "1978/06/29"),
-        ItemEntity(id: 3, lastName: "ヨシカワ", firstName: "チエ", gender: "Female", birthday: "1990/05/04"),
-        ItemEntity(id: 4, lastName: "フジタ", firstName: "アツヒコ", gender: "Male", birthday: "1959/04/25"),
-        ItemEntity(id: 5, lastName: "コクブ", firstName: "タキ", gender: "Female", birthday: "1980/10/01"),
-        ItemEntity(id: 6, lastName: "カワイ", firstName: "トモ", gender: "Male", birthday: "1958/11/22"),
-        ItemEntity(id: 7, lastName: "タカオカ", firstName: "アキ", gender: "Female", birthday: "1966/02/28"),
-        ItemEntity(id: 8, lastName: "キタオカ", firstName: "ウタ", gender: "Female", birthday: "1990/07/07"),
-        ItemEntity(id: 9, lastName: "スギモト", firstName: "サワ", gender: "Male", birthday: "1986/03/17"),
-        ItemEntity(id: 19, lastName: "ホサカ", firstName: "ユキ", gender: "Female", birthday: "1958/05/22")
-    ].map { PresentationModel(id: $0.id, name: $0.lastName + " " + $0.firstName, isStar: $0.isStar) }
+    fileprivate let entities: [ItemEntity]
+    fileprivate let items: [PresentationModel]
 
     init(_ viewController: UIViewController) {
         self.viewController = viewController
+        self.entities = try! Realm().objects(ItemEntity.self).map { $0 }
+        self.items = entities.map { PresentationModel(id: $0.id, name: $0.lastName + " " + $0.firstName, isStar: $0.isStar) }
     }
 
     fileprivate func onClickCell(id: Int) {

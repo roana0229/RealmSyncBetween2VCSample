@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let dummyItems = [
+            (id: 1, lastName: "キド", firstName: "ブンペイ", gender: "Male", birthday: "1991/09/29"),
+            (id: 2, lastName: "イシオカ", firstName: "カエデ", gender: "Female", birthday: "1978/06/29"),
+            (id: 3, lastName: "ヨシカワ", firstName: "チエ", gender: "Female", birthday: "1990/05/04"),
+            (id: 4, lastName: "フジタ", firstName: "アツヒコ", gender: "Male", birthday: "1959/04/25"),
+            (id: 5, lastName: "コクブ", firstName: "タキ", gender: "Female", birthday: "1980/10/01"),
+            (id: 6, lastName: "カワイ", firstName: "トモ", gender: "Male", birthday: "1958/11/22"),
+            (id: 7, lastName: "タカオカ", firstName: "アキ", gender: "Female", birthday: "1966/02/28"),
+            (id: 8, lastName: "キタオカ", firstName: "ウタ", gender: "Female", birthday: "1990/07/07"),
+            (id: 9, lastName: "スギモト", firstName: "サワ", gender: "Male", birthday: "1986/03/17"),
+            (id: 19, lastName: "ホサカ", firstName: "ユキ", gender: "Female", birthday: "1958/05/22")
+        ]
+
+
+        let realm = try! Realm()
+        if realm.objects(ItemEntity.self).count == 0 {
+            try! realm.write {
+                dummyItems.forEach { dummy in
+                    let item = ItemEntity()
+                    item.id = dummy.id
+                    item.lastName = dummy.lastName
+                    item.firstName = dummy.firstName
+                    item.gender = dummy.gender
+                    item.birthday = dummy.birthday
+                    realm.add(item)
+                }
+            }
+        }
+
         return true
     }
 

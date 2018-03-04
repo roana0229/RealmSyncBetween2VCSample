@@ -7,22 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ItemEntity {
+class ItemEntity: Object {
     
-    let id: Int
-    let lastName: String
-    let firstName: String
-    let gender: String
-    let birthday: String
-    let isStar: Bool
+    @objc dynamic var id: Int = 0
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var gender: String = ""
+    @objc dynamic var birthday: String = ""
+    @objc dynamic var isStar: Bool = false
 
-    init(id: Int, lastName: String, firstName: String, gender: String, birthday: String) {
-        self.id = id
-        self.lastName = lastName
-        self.firstName = firstName
-        self.gender = gender
-        self.birthday = birthday
-        self.isStar = false
+    override static func primaryKey() -> String? {
+        return "id"
     }
+
 }
