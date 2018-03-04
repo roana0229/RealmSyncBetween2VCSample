@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB050737204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB050736204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift */; };
+		FB05073D204C4CAD009E61C9 /* NavigateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB05073C204C4CAD009E61C9 /* NavigateProtocol.swift */; };
 		FB49AB71204A73CF00A5BA72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49AB70204A73CF00A5BA72 /* AppDelegate.swift */; };
 		FB49AB73204A73CF00A5BA72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49AB72204A73CF00A5BA72 /* ViewController.swift */; };
 		FB49AB76204A73CF00A5BA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB49AB74204A73CF00A5BA72 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB050736204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoryBoard+UIViewControllerExtensions.swift"; sourceTree = "<group>"; };
+		FB05073C204C4CAD009E61C9 /* NavigateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateProtocol.swift; sourceTree = "<group>"; };
 		FB49AB6D204A73CF00A5BA72 /* RealmSyncBetween2VCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmSyncBetween2VCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB49AB70204A73CF00A5BA72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB49AB72204A73CF00A5BA72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				FB49AB79204A73CF00A5BA72 /* LaunchScreen.storyboard */,
 				FB49AB7C204A73CF00A5BA72 /* Info.plist */,
 				FB9E7C2C204B049000655CE3 /* ItemEntity.swift */,
+				FB050736204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift */,
+				FB05073C204C4CAD009E61C9 /* NavigateProtocol.swift */,
 			);
 			path = RealmSyncBetween2VCSample;
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 			files = (
 				FB9E7C2D204B049000655CE3 /* ItemEntity.swift in Sources */,
 				FB9E7C27204A9C0C00655CE3 /* DetailViewController.swift in Sources */,
+				FB05073D204C4CAD009E61C9 /* NavigateProtocol.swift in Sources */,
 				FB49AB73204A73CF00A5BA72 /* ViewController.swift in Sources */,
 				FB49AB71204A73CF00A5BA72 /* AppDelegate.swift in Sources */,
+				FB050737204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

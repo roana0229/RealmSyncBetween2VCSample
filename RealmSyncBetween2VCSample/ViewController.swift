@@ -8,6 +8,12 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxRealm
+
+fileprivate protocol ViewProtocol: class {
+    func applyChangeset(_ changes: RealmChangeset)
+}
 
 class ViewController: UIViewController {
 
@@ -23,6 +29,18 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+}
+
+extension ViewController: ViewProtocol {
+
+    func applyChangeset(_ changes: RealmChangeset) {
+        tableView.beginUpdates()
+        tableView.deleteRows(at: changes.deleted.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+        tableView.insertRows(at: changes.inserted.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+        tableView.reloadRows(at: changes.updated.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+        tableView.endUpdates()
     }
 
 }
@@ -66,22 +84,35 @@ private class ViewModel {
         }
     }
 
-    private weak var viewController: UIViewController!
+    private weak var navigateProtocol: NavigateProtocol?
+    private weak var viewProtocol: ViewProtocol?
+    private let disposeBag = DisposeBag()
+    fileprivate var items: [PresentationModel]
 
-    fileprivate let entities: [ItemEntity]
-    fileprivate let items: [PresentationModel]
+    init(_ viewController: ViewController) {
+        self.navigateProtocol = viewController
+        self.viewProtocol = viewController
 
-    init(_ viewController: UIViewController) {
-        self.viewController = viewController
-        self.entities = try! Realm().objects(ItemEntity.self).map { $0 }
+        let entities = try! Realm().objects(ItemEntity.self)
         self.items = entities.map { PresentationModel(id: $0.id, name: $0.lastName + " " + $0.firstName, isStar: $0.isStar) }
+        Observable.changeset(from: entities)
+            .subscribe(onNext: { [weak self] results, changes in
+                print(results)
+                if let changes = changes {
+                    print("deleted: \(changes.deleted)")
+                    print("inserted: \(changes.inserted)")
+                    print("updated: \(changes.updated)")
+                    self?.items = results.map { PresentationModel(id: $0.id, name: $0.lastName + " " + $0.firstName, isStar: $0.isStar) }
+                    self?.viewProtocol?.applyChangeset(changes)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     fileprivate func onClickCell(id: Int) {
-        if let detailViewController = viewController.storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            detailViewController.itemId = id
-            viewController.present(detailViewController, animated: true, completion: nil)
-        }
+        let detailViewController = DetailViewController.instantiate(storyboard: "Main", identifier: "Detail")
+        detailViewController.itemId = id
+        navigateProtocol?.navigate(detailViewController)
     }
 
 }

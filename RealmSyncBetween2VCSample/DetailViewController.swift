@@ -9,6 +9,10 @@
 import UIKit
 import RealmSwift
 
+fileprivate protocol ViewProtocol: class {
+    func updateStar(isStar: Bool)
+}
+
 class DetailViewController: UIViewController {
 
     var itemId: Int!
@@ -35,8 +39,15 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func actionTapStar(_ sender: Any) {
-        starButton.isSelected = !starButton.isSelected
         viewModel.onClickStar()
+    }
+
+}
+
+extension DetailViewController: ViewProtocol {
+
+    func updateStar(isStar: Bool) {
+        starButton.isSelected = isStar
     }
 
 }
@@ -59,14 +70,17 @@ private class ViewModel {
         }
     }
 
-    private weak var viewController: UIViewController!
-
-    fileprivate let entity: ItemEntity
+    private weak var navigateProtocol: NavigateProtocol?
+    private weak var viewProtocol: ViewProtocol?
+    private let itemId: Int
     fileprivate let item: PresentationModel
 
-    init(_ viewController: UIViewController, itemId: Int) {
-        self.viewController = viewController
-        self.entity = try! Realm().objects(ItemEntity.self).filter { $0.id == itemId }.first!
+    init(_ viewController: DetailViewController, itemId: Int) {
+        self.navigateProtocol = viewController
+        self.viewProtocol = viewController
+        self.itemId = itemId
+
+        let entity = try! Realm().objects(ItemEntity.self).filter { $0.id == itemId }.first!
         self.item = PresentationModel(id: entity.id,
                                        name: entity.lastName + " " + entity.firstName,
                                        gender: entity.gender == "Male" ? "男性" : "女性",
@@ -75,12 +89,14 @@ private class ViewModel {
     }
 
     fileprivate func onClickBack() {
-        viewController.dismiss(animated: true, completion: nil)
+        navigateProtocol?.dissmiss()
     }
 
     fileprivate func onClickStar() {
+        let entity = try! Realm().objects(ItemEntity.self).filter { $0.id == self.itemId }.first!
         try! Realm().write {
             entity.isStar = !entity.isStar
+            viewProtocol?.updateStar(isStar: entity.isStar)
         }
     }
 
