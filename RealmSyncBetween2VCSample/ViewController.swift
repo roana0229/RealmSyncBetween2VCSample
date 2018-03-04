@@ -110,9 +110,7 @@ private class ViewModel {
     }
 
     fileprivate func onClickCell(id: Int) {
-        let detailViewController = DetailViewController.instantiate(storyboard: "Main", identifier: "Detail")
-        detailViewController.itemId = id
-        navigateProtocol?.navigate(detailViewController)
+        navigateProtocol?.navigate(.Detail(itemId: id))
     }
 
 }

@@ -14,11 +14,11 @@ protocol UIViewControllerExtensions {
 extension UIViewControllerExtensions where Self: UIViewController {
 
     static func instantiate() -> Self {
-        return self.instantiate(storyboard: String(describing: type(of: self)))
+        return self.instantiate(storyboard: String(describing: self))
     }
 
     static func instantiate(storyboard: String) -> Self {
-        return self.instantiate(storyboard: storyboard, identifier: String(describing: type(of: self)))
+        return self.instantiate(storyboard: storyboard, identifier: String(describing: self))
     }
 
     static func instantiate(storyboard: String, identifier: String) -> Self {

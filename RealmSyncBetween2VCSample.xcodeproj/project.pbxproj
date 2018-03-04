@@ -124,13 +124,13 @@
 				FB49AB70204A73CF00A5BA72 /* AppDelegate.swift */,
 				FB49AB72204A73CF00A5BA72 /* ViewController.swift */,
 				FB9E7C26204A9C0C00655CE3 /* DetailViewController.swift */,
+				FB9E7C2C204B049000655CE3 /* ItemEntity.swift */,
+				FB050736204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift */,
+				FB05073C204C4CAD009E61C9 /* NavigateProtocol.swift */,
 				FB49AB74204A73CF00A5BA72 /* Main.storyboard */,
 				FB49AB77204A73CF00A5BA72 /* Assets.xcassets */,
 				FB49AB79204A73CF00A5BA72 /* LaunchScreen.storyboard */,
 				FB49AB7C204A73CF00A5BA72 /* Info.plist */,
-				FB9E7C2C204B049000655CE3 /* ItemEntity.swift */,
-				FB050736204C3F33009E61C9 /* StoryBoard+UIViewControllerExtensions.swift */,
-				FB05073C204C4CAD009E61C9 /* NavigateProtocol.swift */,
 			);
 			path = RealmSyncBetween2VCSample;
 			sourceTree = "<group>";
